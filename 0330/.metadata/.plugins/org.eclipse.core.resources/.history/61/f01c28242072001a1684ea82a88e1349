@@ -1,0 +1,19 @@
+package ex01;
+
+public class Sample {
+
+	public static void main(String[] args) {
+		
+		boolean run = true;
+		
+		while(run){
+			System.out.println("-------------------------------");
+			System.out.println("1.입력 | 2.출력 | 3.삭제 | 4.종료");
+			System.out.println("-------------------------------");
+
+		}
+				
+		
+	}
+
+}

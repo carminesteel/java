@@ -1,0 +1,58 @@
+package ex01;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.util.Scanner;
+
+public class Sample {
+
+	public static void main(String[] args)throws Exception{
+		
+			String driver = "oracle.jdbc.driver.OracleDriver";
+			String url = "jdbc:oracle:thin:@localhost:1521:xe";
+			String user = "system";
+			String password = "1234";
+
+			Class.forName(driver);
+			Connection conn=DriverManager.getConnection(url, user, password);	
+		
+		StudentDAO dao = new StudentDAO();		
+		Scanner s = new Scanner(System.in);
+		
+		
+		boolean run = true;
+		while(run) {
+			System.out.println("-----------------------------------------------");
+			System.out.println("1.입력 | 2.조회 | 3.목록 | 4.수정 | 5.삭제 | 6.종료");
+			System.out.println("-----------------------------------------------");
+			System.out.println("메뉴선택 > ");
+			int menu = s.nextInt();
+			
+			switch(menu) {
+			case 1:
+				System.out.println("-------");
+				System.out.println("학생입력");
+				System.out.println("-------");
+				
+				StudentVO vo = new StudentVO();
+				System.out.print("학생 번호를 입력하세요");
+				vo.setSno(s.next());
+				System.out.print("학생 이름를 입력하세요");
+				vo.setSname(s.next());
+				System.out.print("학생 전화번호를 입력하세요");
+				vo.setTel(s.next());
+				
+				try{ //try문에서 구문을 시도해보고
+					dao.insert(vo);
+					System.out.println("입력완료");
+				}catch(Exception e) { // 안되면 ~~
+					System.out.println("입력오류");
+					System.out.println(e.toString());
+				}								
+				break;			
+			}
+		}
+	
+	}
+
+}

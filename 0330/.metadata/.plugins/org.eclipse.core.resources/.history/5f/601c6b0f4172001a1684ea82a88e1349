@@ -1,0 +1,23 @@
+package main;
+
+import java.io.IOException;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args)throws IOException {
+		int yun = 0;
+		int year = 0;
+		Scanner s = new Scanner(System.in);			
+		year = s.nextInt();
+		if(year%4==0){
+			if(year%100!=0||year%400==0) {
+				yun = 1;
+					
+			}System.out.println(yun);
+		}else {
+		yun = 0;
+		System.out.println(yun);
+		}			
+	}
+}

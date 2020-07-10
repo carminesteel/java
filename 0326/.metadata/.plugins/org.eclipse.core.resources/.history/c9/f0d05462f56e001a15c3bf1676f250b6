@@ -1,0 +1,17 @@
+package ex01;
+
+public class Sample {
+
+	public static void main(String[] args) {
+		//배열에 있는 데이터들에 대한 평균값과 최대값 구하기
+		int sum = 0; //합계를 누적시킬 변수 0
+		int[] num = {96,64,36,46,14,31,45,14};	//배열에 넣을 값
+		for(int i=0; i<=num.length-1; i++) { // 0부터 num.length-1(7)
+			sum = sum + num[i];
+		}
+		
+		double avg=(double) sum/num.length; //num.length의 실직적인 개수
+		System.out.println("평균 : " + avg);
+	}
+
+}

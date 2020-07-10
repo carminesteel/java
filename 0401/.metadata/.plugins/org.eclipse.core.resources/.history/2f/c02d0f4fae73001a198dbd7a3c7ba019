@@ -1,0 +1,13 @@
+package ex02;
+
+public class Sample {
+
+	public static void main(String[] args) {
+		
+		Car c1/* <--°´Ã¼*/=new Car();
+		c1.company = "Çö´ë";
+		c1.maxSpeed = 200;
+
+	}
+
+}

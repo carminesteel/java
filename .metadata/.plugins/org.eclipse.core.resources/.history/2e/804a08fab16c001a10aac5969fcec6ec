@@ -1,0 +1,24 @@
+package ex03;
+
+public class Sample {
+
+	public static void main(String[] args) {
+		//¹®ÀÚÇü º¯¼ö
+		char a='A';
+		String name = "±èÈ«Ã¶";
+		System.out.println("¹Ý : " + a);
+		System.out.println("ÀÌ¸§ : " + name);
+
+		int kor=85, eng=76, mat=77;
+		int tot=kor+eng+mat;
+		int avg=tot/3;
+		
+		System.out.println("±¹¾î : " + kor);
+		System.out.println("¿µ¾î : " + eng);
+		System.out.println("¼öÇÐ : " + mat);
+		System.out.println("ÃÑÁ¡ : " + tot );
+		System.out.println("Æò±Õ = " + avg);
+		
+	}
+
+}

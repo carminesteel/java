@@ -1,0 +1,52 @@
+package ex03;
+
+//성정 관리용 클래스
+public class Grade {
+	//필드
+	
+	String sno;
+	String sname;
+	int kor;
+	int eng;
+	int mat;
+	int tot;
+	double avg;
+	char grade;
+	
+	//생성자
+	public Grade(String sno, String sname, int kor, int eng, int mat) {
+		super(); // 기본생성자
+		this.sno = sno;
+		this.sname = sname;
+		this.kor = kor;
+		this.eng = eng;
+		this.mat = mat;
+	}
+	
+	//메소드
+	int total (int kor, int eng, int mat) {
+		return kor + eng + mat;
+	}
+	//메소드 출력
+	void printgrade(Grade g) {
+		g.tot=g.kor + g.eng + g.mat;
+		g.avg=g.tot/3.;
+		g.grade=grade(g.avg);
+		System.out.println(g.sno+"\t"+g.sname+"\t"+g.kor+"\t"+g.eng+"\t"+g.mat+"\t"+g.tot+"\t"+g.avg+"\t"+g.grade);
+		System.out.println();
+	}
+	
+	char grade(double avg) {
+		if(avg>=90) {
+			return 'A';
+		}else if(avg>=80) {
+			return 'B';
+		}else if(avg>=70) {
+			return 'C';
+		}else if(avg>=60) {
+			return 'D';	
+		}else {
+			return 'F';
+		}	
+	}
+}

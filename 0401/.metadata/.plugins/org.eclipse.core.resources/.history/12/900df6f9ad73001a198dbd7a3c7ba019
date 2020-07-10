@@ -1,0 +1,18 @@
+package ex02;
+
+public class Car {
+	//鞘靛(加己)
+	String company;
+	int maxSpeed;
+	
+	
+	//积己磊
+	Car(){
+		
+	}
+	
+	//皋家靛
+	void printCar() {
+		System.out.println(company);
+	}
+}	

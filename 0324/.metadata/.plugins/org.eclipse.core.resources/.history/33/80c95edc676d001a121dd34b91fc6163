@@ -1,0 +1,20 @@
+package ex01;
+
+public class Sample {
+
+	public static void main(String[] args) {
+		int score = 88 ; //if if 와 if else
+		System.out.println("점수는" + score + "입니다. \n"); 
+		if( score>=90 ) {System.out.println("등급은 A입니다.");
+		}else if(score>=80){
+			System.out.println("등급은 B입니다."); // \n을 붙이면 한줄 더 띄울 수 있다.
+		}else if(score>=70) {
+			System.out.println("등급은 C입니다");
+		}else {System.out.println("등급은 F입니다");
+		}
+			
+		}
+
+	}
+
+

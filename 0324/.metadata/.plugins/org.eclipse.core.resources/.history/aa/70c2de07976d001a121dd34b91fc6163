@@ -1,0 +1,15 @@
+package ex05;
+
+public class Sample {
+
+	public static void main(String[] args) {
+		for1();
+
+	}
+	
+	//5까지 반복출력
+	public static void for1() {
+		System.out.println("**예제1**");
+	}
+
+}

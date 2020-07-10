@@ -1,0 +1,14 @@
+package ex03;
+
+public class Sample {
+
+	public static void main(String[] args) {
+		//¹®ÀÚÇü º¯¼ö
+		char a='A';
+		String name = "±èÈ«Ã¶";
+		System.out.println("¹İ : " + a);
+		System.out.println("ÀÌ¸§ : " + name);
+
+	}
+
+}

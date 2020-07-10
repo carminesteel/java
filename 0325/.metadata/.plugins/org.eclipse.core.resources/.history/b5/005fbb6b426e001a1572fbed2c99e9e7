@@ -1,0 +1,16 @@
+package ex03;
+
+import java.util.Scanner;
+
+public class Sample {
+
+	public static void main(String[] args) {
+		System.out.println("1. 증속 | 2. 감속 | 3.중지");
+		Scanner s = new Scanner(System.in);
+		int sum = 0;
+		int scan = s.nextInt();
+		System.out.println("선택 : " + scan);
+		System.out.println("현재속도 : " + sum );
+	}
+
+}

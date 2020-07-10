@@ -1,0 +1,23 @@
+package ex02;
+//public , private => 접근제한자
+public class Car {
+	//필드(속성)
+	private String company;
+	private int maxSpeed;
+	
+	//set()메소드
+	public void setCompany(String company) {
+		this.company=company;
+	}
+	
+	//생성자
+	Car(){
+		
+	}
+	
+	//메소드
+	void printCar() {
+		System.out.println("제조사 : " + company);
+		System.out.println("최대속도 : " + maxSpeed + "Km");
+	}
+}	

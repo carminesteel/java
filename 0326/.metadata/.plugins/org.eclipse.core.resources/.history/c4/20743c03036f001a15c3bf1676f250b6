@@ -1,0 +1,65 @@
+package ex02;
+
+import java.util.Scanner;
+
+public class Sample {
+
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		int sum = 0 ;
+		int max = -9999;
+		int min = 9999;
+		double avg = 0;
+		int[] scores = null;  //전역변수 (switch문 전체에 쓸 변수 설정) while문이 끝날 때까지 입력한 값을 계속 사용.
+		boolean run = true;		
+		while (run) {
+			System.out.println("-----------------------------------------------------");
+			System.out.println("1.학생수 | 2.점수입력 | 3.점수리스트 | 4.분석 | 5.종료");
+			System.out.println("-----------------------------------------------------");			
+			
+			System.out.println("선택 > ");			
+			int menu = s.nextInt();			
+			switch(menu) {
+			
+			case 1 :	
+				System.out.println("학생수를 입력하세요");
+				int count=s.nextInt();
+				scores = new int[count];
+				System.out.println("학생수 : " + count);
+				break;
+			
+			case 2 :
+				for(int i = 0; i<=scores.length-1; i++) {
+					System.out.println( "점수 [" + (i+1) +"번째" + "] >");
+					scores[i]=s.nextInt();					
+				}
+				System.out.println("점수 입력 완료" );				
+				break;
+			
+			case 3 :	
+				for(int i = 0; i<=scores.length-1; i++) {
+					System.out.println((i +1)+ "번째 학생의 점수 : " + scores[i]);}
+				break;
+			
+			case 4 :	
+				for(int i = 0; i<=scores.length-1; i++) {
+					sum = sum + scores[i];
+					avg = (double)sum/scores.length;
+					if(scores[i]>max) {
+						max=scores[i];
+					}
+				}
+				System.out.println("세 학생 점수의 평균 : " + avg);	
+				System.out.println("세 학생 중 최고 점수 : " +  max);
+				break;
+			
+			case 5 :
+				run = false ;
+				System.out.println("프로그램 종료");
+			}
+		}
+		
+		
+	}
+
+}

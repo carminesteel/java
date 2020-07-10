@@ -1,0 +1,55 @@
+package ex01;
+
+public class Sample2 {
+	public static void main(String[] args) {
+		//students();
+		cars();
+	}
+	
+	
+	public static void cars() {
+		
+	
+	Car car1 = new Car();
+	car1.color="검정";
+	car1.model="그랜저";
+	car1.maxSpeed=250;
+	car1.printCar(car1);
+	
+	Car car2 = new Car();
+	car2.color="갈색";
+	car2.model="리어카";
+	car2.maxSpeed=15;
+	car2.printCar(car2);
+	
+	Car car3 = new Car();
+	car3.color="검정";
+	car3.model="자전거";
+	car3.maxSpeed=35;
+	car3.printCar(car3);
+	
+	Car car4 = new Car("티코","흰색",250);
+	car4.printCar(car4);
+	
+	}
+	
+	public static void students() {
+		
+	Student s1 = new Student();
+	s1.sno="01";
+	s1.sname="홍길동";
+	s1.tel="010-9646-9022";
+	s1.print(s1);
+	
+	
+	Student s2 = new Student();
+	s2.sno="02";
+	s2.sname="심청이";
+	s2.tel="010-9646-9025";
+	s2.print(s2);
+	
+	Student s3 = new Student("03","강감찬","010-0001-0001");
+	s3.print(s3);;
+	
+	}
+}

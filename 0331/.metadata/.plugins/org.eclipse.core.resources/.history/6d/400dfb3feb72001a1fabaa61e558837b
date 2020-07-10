@@ -1,0 +1,26 @@
+package ex01;
+
+public class Sample2 {
+	public static void main(String[] args) {
+	
+		
+	Car car1 = new Car();
+	car1.color="검정";
+	car1.model="그랜저";
+	car1.maxSpeed=250;
+	car1.printCar(car1);
+	
+	Car car2 = new Car();
+	car2.color="갈색";
+	car2.model="리어카";
+	car2.maxSpeed=15;
+	car2.printCar(car2);
+	
+	Car car3 = new Car();
+	car3.color="검정";
+	car3.model="자전거";
+	car3.maxSpeed=35;
+	car3.printCar(car3);
+	
+	}
+}

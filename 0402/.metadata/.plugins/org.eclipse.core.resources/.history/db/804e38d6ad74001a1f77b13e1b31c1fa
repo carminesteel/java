@@ -1,0 +1,104 @@
+package ex03;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.Scanner;
+
+public class Sample {
+
+	public static void main(String[] args) throws Exception {
+		
+		String driver = "oracle.jdbc.driver.OracleDriver";
+		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		String user = "system";
+		String password = "1234";
+		
+		Class.forName(driver);
+		Connection con=DriverManager.getConnection(url, user, password);
+		
+		String sql=null;
+		PreparedStatement ps=null;
+		ResultSet rs=null;
+		
+		Scanner s = new Scanner(System.in);
+		
+		
+		
+		boolean run =true;
+		while(run) {
+			System.out.println("---------------------------------------------");
+			System.out.println("1.성적입력 | 2.성적조회 | 3.성적수정 | 4.프로그램종료");
+			System.out.println("---------------------------------------------");
+			System.out.print("메뉴선택 > ");
+			int menu = s.nextInt();
+			switch(menu) {
+			case 1:
+				boolean run2 = true;
+				while(run2) {
+					SungjukVO sjv = new SungjukVO();
+					System.out.print("번호 > ");
+					sjv.setSno(s.next());
+					sql="select * from tbl_student where sno=?";
+					ps=con.prepareStatement(sql);
+					ps.setString(1, sjv.getSno());
+					rs=ps.executeQuery();
+					if(rs.next()) {
+						System.out.println("이름 :"+rs.getString("sname"));
+						System.out.print("몇월 > ");
+						sjv.setSmonth(s.next());
+						System.out.print("국어 > " );
+						sjv.setKor(s.nextInt());
+						System.out.print("영어 > " );
+						sjv.setEng(s.nextInt());
+						System.out.print("수학 > " );
+						sjv.setMat(s.nextInt());				
+						
+						sql = "insert into tbl_sungjuk (sno,smonth,kor,eng,mat) values (?,?,?,?,?)";
+						ps = con.prepareStatement(sql);
+						ps.setString(1, sjv.getSno());
+						ps.setString(2, sjv.getSmonth());
+						ps.setInt(3, sjv.getKor());
+						ps.setInt(4, sjv.getEng());
+						ps.setInt(5, sjv.getMat());
+						ps.execute();
+						
+						System.out.println("입력완료");
+						run2 = false;
+					}else {
+						run2 = true;
+					}
+				}								
+				break;
+			case 2:
+				boolean run3 = true;
+				while(run3) {
+					System.out.println("성적조회");
+					SungjukVO sjv = new SungjukVO();
+					System.out.println("조회할 학생의 번호를 입력하세요");
+					String no = s.next();
+					sql="select * from tbl_sungjuk where sno = ?";
+					ps = con.prepareStatement(sql);
+					ps.setString(1, s.next());
+					rs = ps.executeQuery();
+					if(rs.next()) {
+						System.out.println(rs);
+				}
+				
+				}
+				break;
+			case 3:
+				break;
+			case 4:
+				run=false;
+				System.out.println("프로그램 종료");
+
+				
+			}
+		}
+				
+		
+	}
+
+}

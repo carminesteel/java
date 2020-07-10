@@ -1,0 +1,37 @@
+package ex07;
+
+public class Sample {
+
+	public static void main(String[] args) {
+		System.out.println("*****매출보고서*****");
+		System.out.println("----------------------------");
+		System.out.println("상품명\t 수량\t 단가\t 금액\t 비고");
+		System.out.println("----------------------------");
+		String[] name = {
+				"냉장고","세탁기","에어컨"
+				};
+		int sumprice = 0;
+		int[] amount = {
+				2,3,5
+				};
+		int[] price = {
+				300,100,150
+				};
+		int[] sum = new int[3];
+		String[] mark = new String[3]; 
+			for(int i=0; i<=2; i++) {
+				sum[i]=amount[i]*price[i];
+				if(sum[i]>=700){mark[i]="최우수";}
+				else if (sum[i]>=500) {mark[i]="우수";}
+				else {mark[i]="보통";}
+				System.out.println(name[i]+ "\t"  + amount[i]+ "\t" + price[i]+ "\t" + sum[i]+ "\t" + mark[i]);				
+				sumprice = sumprice + sum[i];
+				}
+				
+					
+		System.out.println("----------------------------");
+		System.out.println("매출합계" + "\t" + "\t" +sumprice);
+		
+	}
+
+}

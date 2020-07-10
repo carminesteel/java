@@ -1,0 +1,85 @@
+package ex02;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.Scanner;
+
+public class Sample {
+
+	public static void main(String[] args)throws Exception {
+		Scanner s= new Scanner(System.in);	
+		boolean run = true;
+		String driver = "oracle.jdbc.driver.OracleDriver";
+		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		String user = "system";
+		String password = "1234";
+		Class.forName(driver);
+		Connection con=DriverManager.getConnection(url, user, password);
+		while(run) {
+			System.out.println("==========================================");
+			System.out.println("1.계좌생성 | 2.목록 | 3.예금 | 4.출금 | 5.종료");
+			System.out.println("==========================================");
+		
+			int menu=s.nextInt();
+			switch(menu) {
+			case 1 :
+				System.out.println("계좌생성");
+				String sql="insert into tbl_account (ano, aname, balance) values (?,?,?)";
+				PreparedStatement ps = con.prepareStatement(sql);
+				System.out.print("계좌번호> ");
+				String ano=s.next();
+				System.out.print("이름> ");
+				String aname=s.next();
+				System.out.print("초기입금액> ");
+				int balance=s.nextInt();
+				
+				ps.setString(1, ano);
+				ps.setString(2, aname);
+				ps.setInt(3, balance);
+				break;
+			case 2 :
+				sql="select * from tbl_account";
+				ps = con.prepareStatement(sql);
+				ResultSet rs = ps.executeQuery();
+				System.out.println("계좌목록");
+				System.out.println("계좌번호\t성명\t잔액");
+				while(rs.next())//rs의 내용이 있는동안 반복) 
+					{
+					ano=rs.getString("ano");
+					aname=rs.getString("aname");
+					balance = rs.getInt("balance");
+					System.out.print(ano + "\t");
+					System.out.print(aname + "\t");
+					System.out.println(balance + "\t");
+					}
+				break;
+			case 3 :
+				System.out.println("예금");
+				sql="update tbl_account where ";
+				ps = con.prepareStatement(sql);
+				System.out.println("입금할 금액 입력");
+				int suminput = 0;
+				int newbalace = 0;
+				suminput = s.nextInt();
+				
+	/*			newbalance = rs.getInt("balance");
+				
+				
+				newbalance = suminput + newbalance;
+				
+				break;*/
+			case 4 :
+				break;
+			case 5 :
+				run=false;
+				System.out.println("프로그램 종료");
+			}
+		}
+		
+		
+		
+	}
+
+}

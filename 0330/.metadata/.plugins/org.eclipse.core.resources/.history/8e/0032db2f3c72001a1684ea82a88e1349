@@ -1,0 +1,23 @@
+package main;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		int yun = 0;
+		
+		Scanner s = new Scanner(System.in);		
+		System.out.println("¼ıÀÚ ÃÄ");		
+		yun = s.nextInt();
+		if(yun%4==0) {
+			if(yun%100!=0||yun%400==0) {
+				yun = 1;			
+			}
+		}else {
+			yun = 0;
+			System.out.println(yun);}			
+		
+	}
+
+}

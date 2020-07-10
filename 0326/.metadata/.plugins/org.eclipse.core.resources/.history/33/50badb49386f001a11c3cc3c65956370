@@ -1,0 +1,42 @@
+package ex06;
+
+import java.util.Scanner;
+
+public class Sample {
+
+	public static void main(String[] args) {
+		Scanner s = new Scanner (System.in);
+		boolean run = true;
+		int count = 0;
+		int[] num = new int [100];
+		String name = null;
+		int[] kor = new int [100];
+		int[] eng = new int [100];
+		int[] mat = new int [100];
+		
+		while(run) {
+			System.out.println("=================================");
+			System.out.println("1. 성적입력 | 2. 성적목록 | 3. 성적조회 | 4. 종료");
+			System.out.println("=================================");
+			System.out.println("선택 > ");
+			int menu = s.nextInt();
+		
+			switch(menu) {
+			case 1 :
+				System.out.println("성적입력");
+				System.out.println("성적을 입력하세요");
+				int score = s.nextInt();
+				
+				break;
+			case 2 :
+				break;
+			case 3 :
+				break;
+			case 4 :
+				run = false;
+			}
+		}
+
+	}
+
+}

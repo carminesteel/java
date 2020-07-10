@@ -1,0 +1,10 @@
+package ex01;
+
+public class Sample {
+
+	public static void main(String[] args) {
+		System.out.println("¾È³çÇÏ¼¼¿ä");
+		System.out.println("Àú´Â ±èÈ«Ã¶ÀÔ´Ï´Ù.");
+	
+	}
+}
